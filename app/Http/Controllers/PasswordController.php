@@ -14,11 +14,11 @@ class PasswordController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('throttle:2,1', [
+        $this->middleware('throttle:5,1', [
             'only' => ['showLinkRequestForm']
         ]);
 
-        $this->middleware('throttle:3,10', [
+        $this->middleware('throttle:10,1', [
             'only' => ['sendResetLinkEmail']
         ]);
 
@@ -27,12 +27,12 @@ class PasswordController extends Controller
         ]);
 
         // 限流 10 分钟十次
-        $this->middleware('throttle:10,10', [
+        $this->middleware('throttle:100,10', [
             'only' => ['store']
         ]);
 
         // 限流 一个小时内只能提交 10 次请求；
-        $this->middleware('throttle:10,60', [
+        $this->middleware('throttle:100,60', [
             'only' => ['store']
         ]);
     }
