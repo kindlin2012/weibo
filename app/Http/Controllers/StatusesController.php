@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Auth;
 //重要
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\Status;
-use App\Models\User;
 
 use Illuminate\Database\Eloquent\Model;
 
