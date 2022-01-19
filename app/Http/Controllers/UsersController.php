@@ -38,6 +38,7 @@ class UsersController extends Controller
         // $users = User::all();
         $users = User::paginate(6);
         return view('users.index', compact('users'));
+
     }
 
     public function create()
@@ -54,6 +55,7 @@ class UsersController extends Controller
         ->orderBy('created_at', 'desc')
         ->paginate(10);
         return view('users.show',
+            // compact('user', 'statuses')
             compact('user', 'statuses')
         );
     }
